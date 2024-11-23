@@ -12,10 +12,7 @@ class BankAccount:
     def __init__(self,account_holder,balance=0):
         self.account_holder = account_holder
         self.balance = balance
-    print("\n")
-#Add a Deposit Method:
-#Inside the class, define a deposit method that accepts an amount parameter.
-#Check if the deposit amount is at least $10. If it is, add it to the balance and print a confirmation message. If it isn’t, print a message that the minimum deposit amount is $10.
+
 
     def deposit(self,amount):
             if amount>=10:
@@ -25,9 +22,6 @@ class BankAccount:
             else:
                 print("Mininum balabne has to be $10. Try again!")
             
-#Add a Withdrawal Method: 
-#Define a withdraw method that accepts an amount parameter.
-#Check if the amount is greater than zero and within the available balance. If both conditions are met, subtract it from the balance and print the updated balance. Otherwise, print a message indicating that the withdrawal is not possible.  
 
     def withdrawal(self, amount):
         if amount > 0 and amount <= self.balance:
@@ -37,11 +31,22 @@ class BankAccount:
         else:
             print("Sorry, you cannot withdraw this amount. Try again!")
 
+accounts = {
+    "alice":{"pin":1001},
+    "bob":{"pin":1002},
+    "john":{"pin":1003},
+    "sam":{"pin":1004}
+    }
 
-person1 = BankAccount("Mark", 100)
-person1.deposit(300)
-
-person2 = BankAccount("Alice")
-person2.deposit(500)
-
-print("\n")
+def login():
+    while True:
+        user_name = input("Type your username: ")
+        if user_name not in accounts:
+            print("Username is not found. Try again!\n")
+            continue
+        pin_code = input("\nType you pin code: ")
+        if pin_code != accounts[user_name]["pin"]:
+            print("Pin code not found. Try again!\n")
+            continue
+        print("Welcome to your account,", user_name.capitalize)
+        user_name = BankAccount(user_name.capitalize)
