@@ -29,7 +29,7 @@ class BankAccount:
 #Define a withdraw method that accepts an amount parameter.
 #Check if the amount is greater than zero and within the available balance. If both conditions are met, subtract it from the balance and print the updated balance. Otherwise, print a message indicating that the withdrawal is not possible.  
 
-    def withdrwal(self, amount):
+    def withdrawal(self, amount):
         if amount > 0 and amount <= self.balance:
             
             self.balance -= amount
