@@ -13,23 +13,24 @@ class BankAccount:
         self.account_holder = account_holder
         self.balance = balance
 
-
     def deposit(self,amount):
             if amount>=10:
 
                 self.balance += amount
-                print(f"${amount} is deposited. {self.account_holder}'s new balance is ${self.balance}")
+                print(f"${amount} is deposited. Your new balance is ${self.balance}")
             else:
-                print("Mininum balabne has to be $10. Try again!")
+                print("Mininum balance has to be $10. Try again!")
             
-
     def withdrawal(self, amount):
         if amount > 0 and amount <= self.balance:
             
             self.balance -= amount
-            print(f'${amount} has been withdrawn.  {self.account_holder} new balance is ${self.balance}')
+            print(f'${amount} has been withdrawn. Your new balance is ${self.balance}')
         else:
             print("Sorry, you cannot withdraw this amount. Try again!")
+
+    def checkBalance(self):
+        print("Your balance is: ", self.balance)
 
 accounts = {
     "alice":{"pin":1001},
