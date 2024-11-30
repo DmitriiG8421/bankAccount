@@ -13,17 +13,15 @@ class BankAccount:
         self.account_holder = account_holder
         self.balance = balance
 
-    def deposit(self,amount):
-            if amount>=10:
-
-                self.balance += amount
-                print(f"${amount} is deposited. Your new balance is ${self.balance}")
-            else:
-                print("Mininum balance has to be $10. Try again!")
+    def deposit(self, amount):
+        if amount>=10:
+            self.balance += amount
+            print(f"${amount} is deposited. Your new balance is ${self.balance}")
+        else:
+            print("Mininum balance has to be $10. Try again!")
             
     def withdrawal(self, amount):
         if amount > 0 and amount <= self.balance:
-            
             self.balance -= amount
             print(f'${amount} has been withdrawn. Your new balance is ${self.balance}')
         else:
@@ -32,6 +30,14 @@ class BankAccount:
     def checkBalance(self):
         print("Your balance is: ", self.balance)
 
+    def logOut(self):
+        youSure = input("Are you sure you want to log out. 'yes' to log out. 'no' you not log out")
+        if youSure == "yes":
+            print("You are logged out!")
+            
+        else:
+            print("You are NOT logged out!")
+
 accounts = {
     "alice":{"pin":1001},
     "bob":{"pin":1002},
@@ -39,15 +45,37 @@ accounts = {
     "sam":{"pin":1004}
     }
 
-def login():
-    while True:
-        user_name = input("Type your username: ")
-        if user_name not in accounts:
-            print("Username is not found. Try again!\n")
-            continue
-        pin_code = input("\nType you pin code: ")
-        if pin_code != accounts[user_name]["pin"]:
-            print("Pin code not found. Try again!\n")
-            continue
-        print("Welcome to your account,", user_name.capitalize)
-        user_name = BankAccount(user_name.capitalize)
+while True:
+    user_name = input("\nType your username: ")
+    if user_name not in accounts:
+        print("Username is not found. Try again")
+        continue
+    pin_code = int(input("\nType your pin code: "))
+    if pin_code!=accounts[user_name]["pin"]:
+        print("Pincode not found. Try again!")
+        continue
+    print("\nWelcome to your account,",user_name.capitalize())
+    user_account = BankAccount(user_name.capitalize())
+
+    i = 1
+    while i==1:
+        option = input("Which option do you choose?\n Type '1' for deposit\n Type '2' for withdrawal\n Type '3' to check balance\n Type '4' to log out\nOption: ")
+        
+        if option == "1":
+            user_account.deposit(int(input("How much would you like to deposit: ")))
+
+        if option == "2":
+            user_account.withdrawal(int(input("How much would you like to withdraw: ")))
+
+        if option == "3":
+            user_account.checkBalance()
+
+        if option == "4":
+            youSure = input("Are you sure you want to log out. 'yes' to log out. 'no' you not log out\n")
+        if youSure == "yes":
+            print("You are logged out!")
+            break
+        else:
+            print("You are NOT logged out!")
+        print("\n")
+
