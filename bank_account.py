@@ -57,8 +57,7 @@ while True:
     print("\nWelcome to your account,",user_name.capitalize())
     user_account = BankAccount(user_name.capitalize())
 
-    i = 1
-    while i==1:
+    while True:
         option = input("Which option do you choose?\n Type '1' for deposit\n Type '2' for withdrawal\n Type '3' to check balance\n Type '4' to log out\nOption: ")
         
         if option == "1":
