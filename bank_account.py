@@ -71,8 +71,8 @@ while True:
 
         if option == "4":
             youSure = input("Are you sure you want to log out. 'yes' to log out. 'no' you not log out\n")
-        if youSure == "yes":
-            print("You are logged out!")
+            if youSure == "yes":
+                print("You are logged out!")
             break
         else:
             print("You are NOT logged out!")
