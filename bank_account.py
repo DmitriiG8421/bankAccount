@@ -74,7 +74,9 @@ while True:
             if youSure == "yes":
                 print("You are logged out!")
             break
-        else:
+        elif option != "yes":
             print("You are NOT logged out!")
         print("\n")
+
+        #This is feature branch!
 
