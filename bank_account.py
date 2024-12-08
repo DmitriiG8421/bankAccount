@@ -77,5 +77,3 @@ while True:
         elif option != "yes":
             print("You are NOT logged out!")
         print("\n")
-
-
