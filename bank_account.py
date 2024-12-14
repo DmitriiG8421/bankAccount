@@ -31,12 +31,13 @@ class BankAccount:
         print("Your balance is: ", self.balance)
 
     def logOut(self):
-        youSure = input("Are you sure you want to log out. 'yes' to log out. 'no' you not log out")
+        youSure = input("Are you sure you want to log out. 'yes' to log out. 'no' you not log out\n")
         if youSure == "yes":
             print("You are logged out!")
-            
+            return True
         else:
             print("You are NOT logged out!")
+            return False
 
 accounts = {
     "alice":{"pin":1001},
@@ -70,10 +71,10 @@ while True:
             user_account.checkBalance()
 
         if option == "4":
-            youSure = input("Are you sure you want to log out. 'yes' to log out. 'no' you not log out\n")
-            if youSure == "yes":
-                print("You are logged out!")
-            break
-        elif option != "yes":
-            print("You are NOT logged out!")
+            isLoggedOut = user_account.logOut()
+            if isLoggedOut:
+                break
+            
+
         print("\n")
+        #test
